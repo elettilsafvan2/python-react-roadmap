@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A structured 42-day curriculum for modern full-stack web engineering with Python, Flask, React, and databases.">
+  <title>Fullstack Engineering Roadmap | Python & React</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Canvas for Celebration Animations -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="brand-badge">
+          <span>●</span> FULLSTACK ENGINEERING ROADMAP
+        </div>
+        <div class="header-actions">
+          <button class="btn-pill ai-header-btn" id="header-ai-btn" title="Open Google AI Coding Tutor">
+            <span class="ai-sparkle">✨</span>
+            <span>AI Tutor</span>
+          </button>
+
+          <button class="btn-pill cloud-sync-btn" id="cloud-sync-btn" title="Supabase Cloud Synchronization">
+            <span class="cloud-indicator online" id="cloud-indicator"></span>
+            <span id="cloud-status-text">Cloud Sync</span>
+          </button>
+
+          <button class="btn-pill" id="cheatsheet-btn" title="Quick terminal commands & references">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>Reference Guide</span>
+          </button>
+          
+          <button class="btn-icon" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
+            <span id="theme-icon">
+              <!-- Moon / Sun icon loaded by app.js -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </span>
+          </button>
+
+          <button class="btn-icon" id="reset-btn" title="Reset curriculum progress" aria-label="Reset progress">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="header-title-wrap">
+        <h1 class="main-title">Python + React Fullstack Engineering</h1>
+        <p class="sub-title">
+          A structured 42-day hands-on curriculum covering Python backend systems, REST APIs, modern React architecture, and database persistence.
+        </p>
+      </div>
+    </header>
+
+    <!-- Progress Dashboard Card -->
+    <section class="progress-card" aria-label="Curriculum Progress Overview">
+      <div class="progress-hero">
+        <div class="progress-hero-main">
+          <div class="progress-percent-display">
+            <span class="progress-number" id="overall-percent-text">0%</span>
+            <span class="progress-label">COMPLETED</span>
+          </div>
+
+          <div class="progress-summary-info">
+            <div class="progress-main-count">
+              <span class="count-bold" id="stat-completed-days">0</span>
+              <span class="count-total">/ 42 Modules</span>
+            </div>
+            <div class="progress-sub-badges">
+              <span class="info-pill" id="stat-remaining-days">42 modules remaining</span>
+              <span class="info-pill pill-quiz" id="stat-quiz-score">Quiz: 0 / 42 Pts</span>
+              <span class="info-pill pill-subtle">6 Weeks • 3 Phases</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-hero-tags">
+          <div class="curriculum-tag tag-python">
+            <span class="tag-indicator fill-p1"></span>
+            <span>Phase 1: Python</span>
+          </div>
+          <div class="curriculum-tag tag-react">
+            <span class="tag-indicator fill-p2"></span>
+            <span>Phase 2: React</span>
+          </div>
+          <div class="curriculum-tag tag-fullstack">
+            <span class="tag-indicator fill-p3"></span>
+            <span>Phase 3: Fullstack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Linear Progress Track -->
+      <div class="progress-track-container">
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Phase Breakdown Grid -->
+      <div class="phase-grid">
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <div class="phase-card-title">
+              <span class="phase-pill phase-pill-1">Phase 1</span>
+              <span class="phase-heading">Python &amp; Backend</span>
+            </div>
+            <span class="phase-ratio" id="phase-1-label">0 / 14 (0%)</span>
+          </div>
+          <div class="phase-mini-track">
+            <div class="phase-mini-fill fill-p1" id="phase-1-fill"></div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <div class="phase-card-title">
+              <span class="phase-pill phase-pill-2">Phase 2</span>
+              <span class="phase-heading">JavaScript &amp; React</span>
+            </div>
+            <span class="phase-ratio" id="phase-2-label">0 / 14 (0%)</span>
+          </div>
+          <div class="phase-mini-track">
+            <div class="phase-mini-fill fill-p2" id="phase-2-fill"></div>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <div class="phase-card-header">
+            <div class="phase-card-title">
+              <span class="phase-pill phase-pill-3">Phase 3</span>
+              <span class="phase-heading">Integration &amp; Capstone</span>
+            </div>
+            <span class="phase-ratio" id="phase-3-label">0 / 14 (0%)</span>
+          </div>
+          <div class="phase-mini-track">
+            <div class="phase-mini-fill fill-p3" id="phase-3-fill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum Overview View -->
+    <div id="curriculum-view">
+      <!-- Sticky Navigation Controls & Filters -->
+      <nav class="controls-wrap" aria-label="Filters and Phase navigation">
+        <div class="tabs-row">
+          <button class="tab-btn active" data-phase="0">
+            <span>All Modules</span>
+            <span class="tab-badge" id="tab-badge-all">0/42</span>
+          </button>
+          <button class="tab-btn" data-phase="1">
+            <span>Phase 1: Python & Backend</span>
+            <span class="tab-badge" id="tab-badge-p1">0/14</span>
+          </button>
+          <button class="tab-btn" data-phase="2">
+            <span>Phase 2: JavaScript & React</span>
+            <span class="tab-badge" id="tab-badge-p2">0/14</span>
+          </button>
+          <button class="tab-btn" data-phase="3">
+            <span>Phase 3: Integration & Capstone</span>
+            <span class="tab-badge" id="tab-badge-p3">0/14</span>
+          </button>
+        </div>
+
+        <div class="search-filter-row">
+          <div class="search-box">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="text" 
+              id="search-input" 
+              class="search-input" 
+              placeholder="Search topics (e.g. Loops, Flask, useState, REST API, SQLite...)"
+              aria-label="Search syllabus topics"
+            >
+          </div>
+
+          <div class="filter-pills" role="tablist">
+            <button class="filter-pill active" data-filter="all">All</button>
+            <button class="filter-pill" data-filter="pending">Pending</button>
+            <button class="filter-pill" data-filter="completed">Completed</button>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Syllabus List -->
+      <main class="syllabus-list" id="syllabus-list" aria-label="Curriculum Modules">
+        <!-- Injected dynamically via app.js -->
+      </main>
+    </div>
+
+    <!-- Deep Focus Day Workspace View (Full-Page IDE & Curriculum) -->
+    <div id="day-workspace-view" class="day-workspace-view" style="display: none;" aria-label="Day Deep Learning Workspace">
+      <!-- Injected dynamically via app.js -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>
+        Python &amp; React Fullstack Engineering Curriculum • Built for self-paced development.
+      </p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+        Progress automatically preserved in local storage.
+      </p>
+    </footer>
+  </div>
+
+  <!-- Quick Cheatsheet Modal -->
+  <div class="modal-overlay" id="cheatsheet-modal" role="dialog" aria-modal="true" aria-labelledby="cheat-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="cheat-title">
+          <span>⚡</span> Developer Quick Reference
+        </h3>
+        <button class="btn-icon" id="close-cheat-modal" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="cheat-group">
+          <h4>Python &amp; Flask Environment</h4>
+          <div class="cheat-list">
+            <div class="cheat-item">
+              <code>python3 -m venv myenv</code>
+              <span class="cheat-desc">Create isolated virtual environment</span>
+            </div>
+            <div class="cheat-item">
+              <code>source myenv/bin/activate</code>
+              <span class="cheat-desc">Activate venv (Mac/Linux)</span>
+            </div>
+            <div class="cheat-item">
+              <code>pip install flask flask-cors flask-sqlalchemy</code>
+              <span class="cheat-desc">Install backend frameworks &amp; drivers</span>
+            </div>
+            <div class="cheat-item">
+              <code>python3 app.py</code>
+              <span class="cheat-desc">Run development server (Port 5000)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cheat-group">
+          <h4>Vite &amp; React Development</h4>
+          <div class="cheat-list">
+            <div class="cheat-item">
+              <code>npm create vite@latest frontend -- --template react</code>
+              <span class="cheat-desc">Scaffold React application</span>
+            </div>
+            <div class="cheat-item">
+              <code>cd frontend &amp;&amp; npm install</code>
+              <span class="cheat-desc">Install dependencies</span>
+            </div>
+            <div class="cheat-item">
+              <code>npm run dev</code>
+              <span class="cheat-desc">Start hot-reloading dev server</span>
+            </div>
+            <div class="cheat-item">
+              <code>npm run build</code>
+              <span class="cheat-desc">Generate production bundle</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cheat-group">
+          <h4>💡 പഠന വിജയത്തിനുള്ള ടിപ്പുകൾ</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            1. <b>എററുകൾ സ്വാഭാവികമാണ്:</b> കോഡ് ചെയ്യുമ്പോൾ റെഡ് കളറിൽ എറർ വന്നാൽ ഭയപ്പെടേണ്ട. ആ എറർ മുഴുവനായി വായിക്കുകയോ AI-ക്ക് അയച്ചുകൊടുക്കുകയോ ചെയ്യുക.<br>
+            2. <b>ദിവസവും 30-45 മിനിറ്റ്:</b> ഒരു ദിവസം 10 മണിക്കൂർ ഇരുന്ന് മടുക്കുന്നതിനേക്കാൾ ദിവസവും ഒരു ചെറിയ ടാസ്ക് ചെയ്യുന്നത് 100 മടങ്ങ് ഫലപ്രദമാണ്.<br>
+            3. <b>GitHub-ൽ ഇടുക:</b> ചെയ്ത ചെറിയ കോഡ് ആണെങ്കിലും GitHub-ൽ പുഷ് ചെയ്യാൻ ശീലിക്കുക.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Button for AI Tutor -->
+  <button class="ai-fab" id="ai-fab" title="Ask AI Coding Tutor (Google Gemini)">
+    <span class="ai-fab-icon">✨</span>
+    <span class="ai-fab-text">Ask AI</span>
+    <span class="ai-fab-dot" id="ai-fab-dot"></span>
+  </button>
+
+  <!-- Google AI Studio Chat Assistant Drawer -->
+  <aside class="ai-drawer" id="ai-drawer" aria-label="AI Tutor Chat">
+    <div class="ai-drawer-header">
+      <div class="ai-drawer-title-group">
+        <span class="ai-sparkle-badge">✨</span>
+        <div>
+          <div class="ai-drawer-title">Gemini AI Tutor</div>
+          <div class="ai-drawer-subtitle" id="ai-model-label">Google AI Studio • Gemini</div>
+        </div>
+      </div>
+      <div class="ai-drawer-actions">
+        <button class="btn-icon" id="ai-settings-btn" title="Configure Google AI Studio API Key">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <button class="btn-icon" id="close-ai-drawer" aria-label="Close AI Assistant">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- API Key Configuration Box (Collapsible / Banner) -->
+    <div class="ai-key-box" id="ai-key-box">
+      <div class="ai-key-header">
+        <span style="font-weight: 700; font-size: 0.84rem;">🔑 Google AI Studio API Key</span>
+        <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="ai-key-link">Get Free Key ↗</a>
+      </div>
+      <p class="ai-key-desc">
+        Google AI Studio-ൽ നിന്നുള്ള സൗജന്യ API key ഇവിടെ പേസ്റ്റ് ചെയ്യുക.
+      </p>
+      <div class="ai-key-input-row">
+        <input type="password" id="ai-key-input" class="ai-key-input" placeholder="AIzaSy..." autocomplete="off" />
+        <button class="btn-primary-sm" id="save-ai-key-btn">Save</button>
+      </div>
+      <div class="ai-key-status" id="ai-key-status"></div>
+    </div>
+
+    <!-- Current Context Indicator -->
+    <div class="ai-context-bar" id="ai-context-bar">
+      <span class="ai-context-chip" id="ai-context-chip">📚 General Roadmap Help</span>
+      <label class="ai-code-toggle" title="Include code currently open in the editor as context for the AI">
+        <input type="checkbox" id="ai-include-code-toggle" checked />
+        <span>Include code</span>
+      </label>
+    </div>
+
+    <!-- Message History Stream -->
+    <div class="ai-messages" id="ai-messages">
+      <div class="ai-msg bot">
+        <div class="ai-avatar">✨</div>
+        <div class="ai-bubble">
+          ഹലോ! ഞാൻ നിങ്ങളുടെ <b>Fullstack AI Coding Tutor</b> (Google Gemini). Python, React, FastAPI, SQL സംശയങ്ങൾ ചോദിക്കാം. കോഡിലെ എററുകൾ ഫിക്സ് ചെയ്യാനും സഹായിക്കാം!
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompt Suggestions -->
+    <div class="ai-suggestions" id="ai-suggestions">
+      <button class="ai-sug-chip" data-prompt="ഈ ദിവസത്തെ കോൺസെപ്റ്റ് ലളിതമായ ഉദാഹരണങ്ങളോടെ മലയാളത്തിൽ വിശദീകരിക്കാമോ?">💡 കോൺസെപ്റ്റ് വിശദീകരിക്കൂ</button>
+      <button class="ai-sug-chip" data-prompt="ഞാൻ എഡിറ്ററിൽ എഴുതിയ കോഡ് റിവ്യൂ ചെയ്ത് എന്തെങ്കിലും തെറ്റുണ്ടോ എന്ന് പറയാമോ?">🐛 കോഡ് റിവ്യൂ ചെയ്യൂ</button>
+      <button class="ai-sug-chip" data-prompt="ഞാൻ പ്രാക്ടീസ് ചെയ്യാനായി ഈ വിഷയത്തിൽ ഒരു ചെറിയ കോഡിംഗ് ടാസ്ക് തരുമോ?">🎯 പ്രാക്ടീസ് ചലഞ്ച് തരൂ</button>
+    </div>
+
+    <!-- Chat Input Area -->
+    <div class="ai-input-area">
+      <textarea 
+        id="ai-user-input" 
+        class="ai-input-field" 
+        placeholder="Ask a question... (Enter to send, Shift+Enter for new line)"
+        rows="1"
+      ></textarea>
+      <button class="ai-send-btn" id="ai-send-btn" aria-label="Send message">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+        </svg>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Pyodide WebAssembly Python Engine (Loaded on-demand) -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js" defer></script>
+
+  <!-- Scripts -->
+  <script src="syllabus-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
