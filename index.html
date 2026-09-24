@@ -25,18 +25,31 @@
     <!-- Header -->
     <header class="app-header">
       <div class="header-top">
-        <div class="brand-badge">
-          <span>●</span> FULLSTACK ENGINEERING ROADMAP
+        <div class="header-brand-group">
+          <h1 class="main-title">Python + React</h1>
         </div>
         <div class="header-actions">
-          <button class="btn-pill ai-header-btn" id="header-ai-btn" title="Open Google AI Coding Tutor">
-            <span class="ai-sparkle">✨</span>
+          <button class="btn-pill ai-header-btn" id="header-ai-btn" title="Open Google AI Coding Tutor (⌘I)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sparkle"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2z"/></svg>
             <span>AI Tutor</span>
+            <kbd class="header-kbd">⌘I</kbd>
           </button>
 
-          <button class="btn-pill cloud-sync-btn" id="cloud-sync-btn" title="Supabase Cloud Synchronization">
+          <button class="btn-icon cloud-sync-btn" id="cloud-sync-btn" title="Cloud Sync: Online (Supabase)" aria-label="Cloud Sync">
+            <svg class="cloud-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+            </svg>
             <span class="cloud-indicator online" id="cloud-indicator"></span>
-            <span id="cloud-status-text">Cloud Sync</span>
+            <span id="cloud-status-text" class="sr-only">Cloud Sync</span>
+          </button>
+
+          <button class="btn-pill" id="shortcuts-btn" title="Mac Keyboard Shortcuts (⌘/)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"></path>
+            </svg>
+            <span>Shortcuts</span>
+            <kbd class="header-kbd">⌘/</kbd>
           </button>
 
           <button class="btn-pill" id="cheatsheet-btn" title="Quick terminal commands & references">
@@ -44,7 +57,7 @@
               <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
             </svg>
-            <span>Reference Guide</span>
+            <span>Reference</span>
           </button>
           
           <button class="btn-icon" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle theme">
@@ -56,58 +69,34 @@
             </span>
           </button>
 
-          <button class="btn-icon" id="reset-btn" title="Reset curriculum progress" aria-label="Reset progress">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-              <path d="M3 3v5h5"></path>
-            </svg>
+          <button class="btn-icon header-profile-btn" id="settings-btn" title="Settings & Profile" aria-label="Settings and Profile">
+            <span class="header-avatar-badge" id="header-avatar-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </span>
           </button>
         </div>
       </div>
-
-      <div class="header-title-wrap">
-        <h1 class="main-title">Python + React Fullstack Engineering</h1>
-        <p class="sub-title">
-          A structured 42-day hands-on curriculum covering Python backend systems, REST APIs, modern React architecture, and database persistence.
-        </p>
-      </div>
     </header>
 
-    <!-- Progress Dashboard Card -->
+    <!-- Clean Minimalist Progress Overview -->
     <section class="progress-card" aria-label="Curriculum Progress Overview">
       <div class="progress-hero">
         <div class="progress-hero-main">
-          <div class="progress-percent-display">
-            <span class="progress-number" id="overall-percent-text">0%</span>
-            <span class="progress-label">COMPLETED</span>
-          </div>
-
+          <span class="progress-number" id="overall-percent-text">0%</span>
           <div class="progress-summary-info">
             <div class="progress-main-count">
               <span class="count-bold" id="stat-completed-days">0</span>
               <span class="count-total">/ 42 Modules</span>
             </div>
-            <div class="progress-sub-badges">
-              <span class="info-pill" id="stat-remaining-days">42 modules remaining</span>
-              <span class="info-pill pill-quiz" id="stat-quiz-score">Quiz: 0 / 42 Pts</span>
-              <span class="info-pill pill-subtle">6 Weeks • 3 Phases</span>
-            </div>
           </div>
         </div>
 
-        <div class="progress-hero-tags">
-          <div class="curriculum-tag tag-python">
-            <span class="tag-indicator fill-p1"></span>
-            <span>Phase 1: Python</span>
-          </div>
-          <div class="curriculum-tag tag-react">
-            <span class="tag-indicator fill-p2"></span>
-            <span>Phase 2: React</span>
-          </div>
-          <div class="curriculum-tag tag-fullstack">
-            <span class="tag-indicator fill-p3"></span>
-            <span>Phase 3: Fullstack</span>
-          </div>
+        <div class="progress-sub-badges">
+          <span class="info-pill" id="stat-remaining-days">42 modules remaining</span>
+          <span class="info-pill pill-quiz" id="stat-quiz-score">Quiz: 0 / 42 Pts</span>
         </div>
       </div>
 
@@ -118,45 +107,31 @@
         </div>
       </div>
 
-      <!-- Phase Breakdown Grid -->
-      <div class="phase-grid">
-        <div class="phase-card">
-          <div class="phase-card-header">
-            <div class="phase-card-title">
-              <span class="phase-pill phase-pill-1">Phase 1</span>
-              <span class="phase-heading">Python &amp; Backend</span>
-            </div>
-            <span class="phase-ratio" id="phase-1-label">0 / 14 (0%)</span>
+      <!-- Compact 3-Phase Strip -->
+      <div class="phase-compact-strip">
+        <div class="phase-compact-col">
+          <div class="phase-compact-header">
+            <span class="phase-pill phase-pill-1">Phase 1</span>
+            <span class="phase-compact-name">Python &amp; Backend</span>
+            <span class="phase-compact-num" id="phase-1-label">0 / 14 (0%)</span>
           </div>
-          <div class="phase-mini-track">
-            <div class="phase-mini-fill fill-p1" id="phase-1-fill"></div>
-          </div>
+          <div class="phase-mini-track"><div class="phase-mini-fill fill-p1" id="phase-1-fill"></div></div>
         </div>
-
-        <div class="phase-card">
-          <div class="phase-card-header">
-            <div class="phase-card-title">
-              <span class="phase-pill phase-pill-2">Phase 2</span>
-              <span class="phase-heading">JavaScript &amp; React</span>
-            </div>
-            <span class="phase-ratio" id="phase-2-label">0 / 14 (0%)</span>
+        <div class="phase-compact-col">
+          <div class="phase-compact-header">
+            <span class="phase-pill phase-pill-2">Phase 2</span>
+            <span class="phase-compact-name">JavaScript &amp; React</span>
+            <span class="phase-compact-num" id="phase-2-label">0 / 14 (0%)</span>
           </div>
-          <div class="phase-mini-track">
-            <div class="phase-mini-fill fill-p2" id="phase-2-fill"></div>
-          </div>
+          <div class="phase-mini-track"><div class="phase-mini-fill fill-p2" id="phase-2-fill"></div></div>
         </div>
-
-        <div class="phase-card">
-          <div class="phase-card-header">
-            <div class="phase-card-title">
-              <span class="phase-pill phase-pill-3">Phase 3</span>
-              <span class="phase-heading">Integration &amp; Capstone</span>
-            </div>
-            <span class="phase-ratio" id="phase-3-label">0 / 14 (0%)</span>
+        <div class="phase-compact-col">
+          <div class="phase-compact-header">
+            <span class="phase-pill phase-pill-3">Phase 3</span>
+            <span class="phase-compact-name">Fullstack Capstone</span>
+            <span class="phase-compact-num" id="phase-3-label">0 / 14 (0%)</span>
           </div>
-          <div class="phase-mini-track">
-            <div class="phase-mini-fill fill-p3" id="phase-3-fill"></div>
-          </div>
+          <div class="phase-mini-track"><div class="phase-mini-fill fill-p3" id="phase-3-fill"></div></div>
         </div>
       </div>
     </section>
@@ -167,19 +142,19 @@
       <nav class="controls-wrap" aria-label="Filters and Phase navigation">
         <div class="tabs-row">
           <button class="tab-btn active" data-phase="0">
-            <span>All Modules</span>
+            <span>All</span>
             <span class="tab-badge" id="tab-badge-all">0/42</span>
           </button>
           <button class="tab-btn" data-phase="1">
-            <span>Phase 1: Python & Backend</span>
+            <span>Phase 1: Python</span>
             <span class="tab-badge" id="tab-badge-p1">0/14</span>
           </button>
           <button class="tab-btn" data-phase="2">
-            <span>Phase 2: JavaScript & React</span>
+            <span>Phase 2: React</span>
             <span class="tab-badge" id="tab-badge-p2">0/14</span>
           </button>
           <button class="tab-btn" data-phase="3">
-            <span>Phase 3: Integration & Capstone</span>
+            <span>Phase 3: Fullstack</span>
             <span class="tab-badge" id="tab-badge-p3">0/14</span>
           </button>
         </div>
@@ -211,22 +186,17 @@
       <main class="syllabus-list" id="syllabus-list" aria-label="Curriculum Modules">
         <!-- Injected dynamically via app.js -->
       </main>
+
+      <!-- Footer -->
+      <footer class="app-footer">
+        <p>42-Day Python &amp; React Engineering Curriculum • Auto-saved locally</p>
+      </footer>
     </div>
 
     <!-- Deep Focus Day Workspace View (Full-Page IDE & Curriculum) -->
     <div id="day-workspace-view" class="day-workspace-view" style="display: none;" aria-label="Day Deep Learning Workspace">
       <!-- Injected dynamically via app.js -->
     </div>
-
-    <!-- Footer -->
-    <footer class="app-footer">
-      <p>
-        Python &amp; React Fullstack Engineering Curriculum • Built for self-paced development.
-      </p>
-      <p style="margin-top: 0.5rem; font-size: 0.8rem;">
-        Progress automatically preserved in local storage.
-      </p>
-    </footer>
   </div>
 
   <!-- Quick Cheatsheet Modal -->
@@ -234,7 +204,7 @@
     <div class="modal-card">
       <div class="modal-header">
         <h3 class="modal-title" id="cheat-title">
-          <span>⚡</span> Developer Quick Reference
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 6px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>Developer Quick Reference
         </h3>
         <button class="btn-icon" id="close-cheat-modal" aria-label="Close modal">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -289,7 +259,9 @@
         </div>
 
         <div class="cheat-group">
-          <h4>💡 പഠന വിജയത്തിനുള്ള ടിപ്പുകൾ</h4>
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 6px;"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"></path></svg>പഠന വിജയത്തിനുള്ള ടിപ്പുകൾ
+          </h4>
           <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
             1. <b>എററുകൾ സ്വാഭാവികമാണ്:</b> കോഡ് ചെയ്യുമ്പോൾ റെഡ് കളറിൽ എറർ വന്നാൽ ഭയപ്പെടേണ്ട. ആ എറർ മുഴുവനായി വായിക്കുകയോ AI-ക്ക് അയച്ചുകൊടുക്കുകയോ ചെയ്യുക.<br>
             2. <b>ദിവസവും 30-45 മിനിറ്റ്:</b> ഒരു ദിവസം 10 മണിക്കൂർ ഇരുന്ന് മടുക്കുന്നതിനേക്കാൾ ദിവസവും ഒരു ചെറിയ ടാസ്ക് ചെയ്യുന്നത് 100 മടങ്ങ് ഫലപ്രദമാണ്.<br>
@@ -300,25 +272,213 @@
     </div>
   </div>
 
+  <!-- Mac Keyboard Shortcuts Modal -->
+  <div class="modal-overlay" id="shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">
+    <div class="modal-card shortcuts-modal-card">
+      <div class="modal-header">
+        <div style="display:flex; align-items:center; gap:0.65rem;">
+          <div class="confirm-icon-badge" style="width:36px; height:36px; border-radius:8px; background:rgba(56, 189, 248, 0.12); border:1px solid rgba(56, 189, 248, 0.25); color:#38bdf8; display:flex; align-items:center; justify-content:center;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M7 16h10"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="modal-title" id="shortcuts-title" style="margin:0; font-size:1.05rem;">macOS Keyboard Shortcuts</h3>
+            <span style="font-size:0.75rem; color:var(--text-muted);">Shortcuts optimized for Apple Mac keyboard</span>
+          </div>
+        </div>
+        <button class="btn-icon" id="close-shortcuts-modal" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body shortcuts-modal-body">
+        <div class="shortcuts-grid">
+          <!-- Group 1: Code Editor & Execution -->
+          <div class="shortcut-group">
+            <div class="shortcut-group-title">Editor &amp; Execution</div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Run Code in Terminal</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌘</kbd><kbd class="mac-kbd">↵</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Save Code &amp; Cloud Sync</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌘</kbd><kbd class="mac-kbd">S</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Toggle Line Comment (# or //)</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌘</kbd><kbd class="mac-kbd">/</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Indent Code (4 Spaces)</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">Tab</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Outdent / Unindent</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⇧</kbd><kbd class="mac-kbd">Tab</kbd></div>
+            </div>
+          </div>
+
+          <!-- Group 2: Tabs & Workspace -->
+          <div class="shortcut-group">
+            <div class="shortcut-group-title">Workspace &amp; Files</div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Create New File (+)</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌥</kbd><kbd class="mac-kbd">N</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Close / Delete Active File</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌥</kbd><kbd class="mac-kbd">W</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Switch Next / Prev Tab</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌃</kbd><kbd class="mac-kbd">Tab</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Clear Terminal Output</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌘</kbd><kbd class="mac-kbd">K</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Interrupt / Kill Process</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌃</kbd><kbd class="mac-kbd">C</kbd></div>
+            </div>
+          </div>
+
+          <!-- Group 3: Navigation & Controls -->
+          <div class="shortcut-group">
+            <div class="shortcut-group-title">Navigation &amp; Dialogs</div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Open Keyboard Shortcuts</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌘</kbd><kbd class="mac-kbd">/</kbd> <span style="font-size:0.75rem; color:var(--text-muted); margin:0 3px;">or</span> <kbd class="mac-kbd">?</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Confirm Delete / Action</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">↵ Enter</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Close Dialog / Back to Roadmap</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⎋ Esc</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Toggle AI Coding Tutor</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌘</kbd><kbd class="mac-kbd">I</kbd> <span style="font-size:0.75rem; color:var(--text-muted); margin:0 3px;">or</span> <kbd class="mac-kbd">⌥</kbd><kbd class="mac-kbd">A</kbd></div>
+            </div>
+            <div class="shortcut-row">
+              <span class="shortcut-desc">Toggle Theme (Dark / Light)</span>
+              <div class="shortcut-keys"><kbd class="mac-kbd">⌥</kbd><kbd class="mac-kbd">T</kbd></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings & Profile Modal -->
+  <div class="modal-overlay" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+    <div class="modal-card settings-modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="settings-modal-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Settings &amp; Profile</span>
+        </h3>
+        <button class="btn-icon" id="close-settings-modal" aria-label="Close settings modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body settings-modal-body">
+        <!-- User Profile Section -->
+        <div class="settings-section">
+          <h4 class="settings-section-title">User Profile</h4>
+          <div class="profile-edit-grid">
+            <div class="profile-avatar-uploader">
+              <div class="profile-avatar-preview" id="profile-avatar-preview">
+                <!-- Avatar image or initials rendered dynamically -->
+                <span id="profile-avatar-fallback">U</span>
+              </div>
+              <div class="profile-avatar-actions">
+                <label for="profile-avatar-input" class="btn-pill btn-upload-avatar">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                  <span>Upload Photo</span>
+                </label>
+                <input type="file" id="profile-avatar-input" accept="image/*" style="display:none;" />
+                <button type="button" class="btn-text-sm" id="btn-remove-avatar" style="display:none;">Remove Photo</button>
+              </div>
+            </div>
+
+            <div class="profile-info-fields">
+              <div class="form-group">
+                <label for="profile-name-input">Display Name</label>
+                <input type="text" id="profile-name-input" class="settings-input" placeholder="Your Name (e.g. Rahul, Safvan)" maxlength="32" />
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn-primary-sm" id="save-profile-btn">Save Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Curriculum & Data Reset Section -->
+        <div class="settings-section danger-zone">
+          <h4 class="settings-section-title danger-title">Reset &amp; Clear Progress</h4>
+          <p class="settings-section-desc">
+            നിങ്ങളുടെ പഠന പുരോഗതിയും, പൂർത്തിയാക്കിയ ദിവസങ്ങളും, ക്വിസ് സ്കോറുകളും റീസെറ്റ് ചെയ്യാം. നിങ്ങളുടെ വർക്ക്സ്പേസ് ഫയലുകൾ നഷ്ടപ്പെടില്ല.
+          </p>
+          <div class="settings-actions">
+            <button class="btn-danger-sm" id="clear-progress-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span>Reset Curriculum Progress</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Action Button for AI Tutor -->
-  <button class="ai-fab" id="ai-fab" title="Ask AI Coding Tutor (Google Gemini)">
-    <span class="ai-fab-icon">✨</span>
+  <button class="ai-fab" id="ai-fab" title="Ask AI Coding Tutor (⌘I)">
+    <span class="ai-fab-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+    </span>
     <span class="ai-fab-text">Ask AI</span>
     <span class="ai-fab-dot" id="ai-fab-dot"></span>
   </button>
 
   <!-- Google AI Studio Chat Assistant Drawer -->
   <aside class="ai-drawer" id="ai-drawer" aria-label="AI Tutor Chat">
+    <!-- Draggable Width Resizer -->
+    <div class="ai-drawer-resizer" id="ai-drawer-resizer" title="Drag to resize AI sidebar • Double-click to reset" aria-label="Resize AI sidebar"></div>
+
     <div class="ai-drawer-header">
       <div class="ai-drawer-title-group">
-        <span class="ai-sparkle-badge">✨</span>
-        <div>
+        <span class="ai-sparkle-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+        </span>
+        <div class="ai-drawer-titles">
           <div class="ai-drawer-title">Gemini AI Tutor</div>
-          <div class="ai-drawer-subtitle" id="ai-model-label">Google AI Studio • Gemini</div>
+          <div class="ai-drawer-subtitle" id="ai-model-label">Gemini 3.6 Flash</div>
         </div>
       </div>
       <div class="ai-drawer-actions">
-        <button class="btn-icon" id="ai-settings-btn" title="Configure Google AI Studio API Key">
+        <button class="btn-icon" id="ai-history-btn" title="Chat History &amp; New Chat" aria-label="Chat History">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </button>
+        <button class="btn-icon" id="ai-settings-btn" title="API Key Settings">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"></circle>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
@@ -336,22 +496,45 @@
     <!-- API Key Configuration Box (Collapsible / Banner) -->
     <div class="ai-key-box" id="ai-key-box">
       <div class="ai-key-header">
-        <span style="font-weight: 700; font-size: 0.84rem;">🔑 Google AI Studio API Key</span>
+        <span style="font-weight: 700; font-size: 0.84rem; display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-2 2m-6 6 2-2m-8 8 2-2M3 21l8-8"></path><circle cx="7.5" cy="7.5" r="4.5"></circle></svg>
+          Google AI Studio API Key
+        </span>
         <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="ai-key-link">Get Free Key ↗</a>
       </div>
       <p class="ai-key-desc">
         Google AI Studio-ൽ നിന്നുള്ള സൗജന്യ API key ഇവിടെ പേസ്റ്റ് ചെയ്യുക.
       </p>
       <div class="ai-key-input-row">
-        <input type="password" id="ai-key-input" class="ai-key-input" placeholder="AIzaSy..." autocomplete="off" />
+        <input type="password" id="ai-key-input" class="ai-key-input" placeholder="AQ.Ab8... or AIzaSy..." autocomplete="off" />
         <button class="btn-primary-sm" id="save-ai-key-btn">Save</button>
       </div>
       <div class="ai-key-status" id="ai-key-status"></div>
     </div>
 
+    <!-- Chat History Sessions Panel (Collapsible) -->
+    <div class="ai-history-panel" id="ai-history-panel" style="display: none;">
+      <div class="ai-history-header">
+        <span class="ai-history-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Previous Chats
+        </span>
+        <button class="ai-history-new-btn" id="ai-history-new-btn">+ New Chat</button>
+      </div>
+      <div class="ai-history-list" id="ai-history-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
     <!-- Current Context Indicator -->
     <div class="ai-context-bar" id="ai-context-bar">
-      <span class="ai-context-chip" id="ai-context-chip">📚 General Roadmap Help</span>
+      <span class="ai-context-chip" id="ai-context-chip">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        <span>General Roadmap Help</span>
+      </span>
       <label class="ai-code-toggle" title="Include code currently open in the editor as context for the AI">
         <input type="checkbox" id="ai-include-code-toggle" checked />
         <span>Include code</span>
@@ -361,7 +544,9 @@
     <!-- Message History Stream -->
     <div class="ai-messages" id="ai-messages">
       <div class="ai-msg bot">
-        <div class="ai-avatar">✨</div>
+        <div class="ai-avatar">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+        </div>
         <div class="ai-bubble">
           ഹലോ! ഞാൻ നിങ്ങളുടെ <b>Fullstack AI Coding Tutor</b> (Google Gemini). Python, React, FastAPI, SQL സംശയങ്ങൾ ചോദിക്കാം. കോഡിലെ എററുകൾ ഫിക്സ് ചെയ്യാനും സഹായിക്കാം!
         </div>
@@ -370,9 +555,15 @@
 
     <!-- Quick Prompt Suggestions -->
     <div class="ai-suggestions" id="ai-suggestions">
-      <button class="ai-sug-chip" data-prompt="ഈ ദിവസത്തെ കോൺസെപ്റ്റ് ലളിതമായ ഉദാഹരണങ്ങളോടെ മലയാളത്തിൽ വിശദീകരിക്കാമോ?">💡 കോൺസെപ്റ്റ് വിശദീകരിക്കൂ</button>
-      <button class="ai-sug-chip" data-prompt="ഞാൻ എഡിറ്ററിൽ എഴുതിയ കോഡ് റിവ്യൂ ചെയ്ത് എന്തെങ്കിലും തെറ്റുണ്ടോ എന്ന് പറയാമോ?">🐛 കോഡ് റിവ്യൂ ചെയ്യൂ</button>
-      <button class="ai-sug-chip" data-prompt="ഞാൻ പ്രാക്ടീസ് ചെയ്യാനായി ഈ വിഷയത്തിൽ ഒരു ചെറിയ കോഡിംഗ് ടാസ്ക് തരുമോ?">🎯 പ്രാക്ടീസ് ചലഞ്ച് തരൂ</button>
+      <button class="ai-sug-chip" data-prompt="ഈ ദിവസത്തെ കോൺസെപ്റ്റ് ലളിതമായ ഉദാഹരണങ്ങളോടെ മലയാളത്തിൽ വിശദീകരിക്കാമോ?">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"></path></svg>കോൺസെപ്റ്റ് വിശദീകരിക്കൂ
+      </button>
+      <button class="ai-sug-chip" data-prompt="ഞാൻ എഡിറ്ററിൽ എഴുതിയ കോഡ് റിവ്യൂ ചെയ്ത് എന്തെങ്കിലും തെറ്റുണ്ടോ എന്ന് പറയാമോ?">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;"><rect width="8" height="14" x="8" y="5" rx="4"></rect><path d="m19 7-3 2"></path><path d="m5 7 3 2"></path><path d="m19 19-3-2"></path><path d="m5 19 3-2"></path><path d="M20 13h-4"></path><path d="M4 13h4"></path><path d="M10 4 9 2"></path><path d="M14 4l1-2"></path></svg>കോഡ് റിവ്യൂ ചെയ്യൂ
+      </button>
+      <button class="ai-sug-chip" data-prompt="ഞാൻ പ്രാക്ടീസ് ചെയ്യാനായി ഈ വിഷയത്തിൽ ഒരു ചെറിയ കോഡിംഗ് ടാസ്ക് തരുമോ?">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: text-bottom; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="6" r="6"></circle><circle cx="12" cy="2" r="2"></circle></svg>പ്രാക്ടീസ് ചലഞ്ച് തരൂ
+      </button>
     </div>
 
     <!-- Chat Input Area -->
@@ -380,7 +571,7 @@
       <textarea 
         id="ai-user-input" 
         class="ai-input-field" 
-        placeholder="Ask a question... (Enter to send, Shift+Enter for new line)"
+        placeholder="Ask a question..."
         rows="1"
       ></textarea>
       <button class="ai-send-btn" id="ai-send-btn" aria-label="Send message">
